@@ -56,3 +56,18 @@ a = "abc"
 * LLDB
     * デバッガ
     * プログラムの対話的実行や変数、コールスタックのダンプ等が出来る
+
+# 命名規則
+* 単語の区切り
+    * UpperCamel
+* 単語の選び方
+    * 曖昧さを避ける
+        * `findUser(_:)` -> `findUser(byID:)`
+        * 何を使って検索するかが曖昧なので明示する
+    * 一般的な単語を使う
+        * `epidermis` -> `skin`
+        * 同じ意味の単語があればわかりやすいほうを使う
+    * 略語を避ける
+        * `stmt` -> `statement`
+        * `stmt`じゃわからん
+    * 詳しくは[API Design Guideline](https://swift.org/documentation/api-design-guidelines/)を参照
