@@ -71,3 +71,7 @@ a = "abc"
         * `stmt` -> `statement`
         * `stmt`じゃわからん
     * 詳しくは[API Design Guideline](https://swift.org/documentation/api-design-guidelines/)を参照
+
+# まとめ
+* Swiftは簡潔な文法 + 型の安全性を持った言語
+* 型安全の特徴を活かすためには仕様を理解しよう
