@@ -59,3 +59,106 @@ let a // ng
 
 ## 操作
 * 比較演算子、算術演算子がいろいろある。細かいことは割愛
+
+## 文字列リテラル
+### 特殊文字
+
+```swift
+let lf = "\n"
+let cr = "\r"
+let null = "\0"
+```
+
+など
+
+### 文字列リテラル内の値の展開
+
+ ```swift
+ let a = 111
+ let out = "\(a)" // 111
+```
+
+### 複数行
+
+```swift
+let a = """
+aaaa
+  aaaaa
+aaaa
+"""
+```
+
+### Stringの個々の文字について
+* Character型で表される
+
+```swift
+let string = "a"
+let character: Character = "a"
+
+type(of: string)
+type(of: character)
+```
+
+* 文字列内の個々のCharacterの一はString.Indexで表される
+
+```swift
+let a = "12345"
+print(a.startIndex) // 0
+print(a.endIndex) // 20
+```
+
+* Indexを使ってアクセスできる
+* endIndexは最後の次の要素を指してしまうので注意
+* 途中の値を取るにはoffsetby
+
+```swift
+let a = "12345"
+print(a[a.startIndex]) // 1
+print(a[a.endIndex]) // Fatal error: Can't form a Character from an empty String
+print(a[a.index(a.startIndex, offsetBy: 2)]) // 3
+print(a[a.index(a.endIndex, offsetBy: -2)]) // 4
+```
+
+### 文字列の比較
+* `==`でOK
+* 型違いは比較できない, String, Character同士など
+
+### 結合
+* `+`
+* `append`を使うとString + Characterがいける
+
+### 高度な操作
+* 文字列の順番を比較する関数とかがFoundationにある
+
+
+## Array
+* シンタックスシュガーあり`Array<Int>`->`[Int]`
+* 複数の要素を含む場合は`Any`を明示
+* 基本は型推論が効く
+* `let a = [[1,2,3], [1,2,3]]` -> `[[Int]]`
+
+## Dictionary
+* シンタックスシュガー `Dictionary<String, Int>` -> `[String: Int]`
+* からの辞書 `[:]`
+* Keyに入れる型は`Hashable`に準拠している必要あり
+* Valueはなんでもおｋ
+
+## 範囲型
+* `Range<Bound>`など
+* 終了を含んだり含まなかったりするタイプがある
+
+```swift
+let range1 = 1..<10
+for i in range1 {
+    print(i) // 1...9まで出力
+}
+type(of: range1) // CountableRange<Int>.Type
+
+let range2 = 1...10
+for i in range2 {
+    print(i) // 1...10まで出力
+}
+type(of: range2) // CountableClosedRange<Int>.Type
+```
+
+## Optional
