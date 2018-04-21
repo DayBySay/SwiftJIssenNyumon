@@ -36,3 +36,23 @@ a = "abc"
 ## swift command
 * swiftcで複数ファイルから1プログラムをコンパイルする場合、`main.swift`というファイル名をエントリポイントにする
 * `main.swift`以外のファイルのトップレベルには定義しか書けない
+
+# Swift OSS
+* SwiftはOSSで開発されている
+* コンパイラやライブラリ群も
+* XcodeやCocoaは非OSS
+
+## ライブラリ
+* 標準ライブラリ
+    * 数値や文字列など、import不要なもの
+* コアライブラリ
+    * Foundation
+    * libdispatch
+    * XCTest
+
+## 開発ツール
+* Swift Package Manager
+    * Package Management System
+* LLDB
+    * デバッガ
+    * プログラムの対話的実行や変数、コールスタックのダンプ等が出来る
