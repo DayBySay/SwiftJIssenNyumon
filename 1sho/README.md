@@ -1,6 +1,6 @@
 # Swiftの特徴
-## 静的型月言語であること
-* コンパイル時に方の情報を決定する
+## 静的型付き言語であること
+* コンパイル時に型の情報を決定する
 * ランタイムエラーではなくコンパイル時に検知できるエラーが動的型付けに比べて増える為、安全性を高めたい大規模開発に向いている
 ## nil許容性のコントロールができる
 * nilとして扱っている変数へのアクセス箇所などがバグりやすい
@@ -37,12 +37,24 @@ a = "abc"
 * swiftcで複数ファイルから1プログラムをコンパイルする場合、`main.swift`というファイル名をエントリポイントにする
 * `main.swift`以外のファイルのトップレベルには定義しか書けない
 
+```
+➜  1sho git:(1sho) make hello
+swiftc ./hello.swift
+➜  1sho git:(1sho) ./hello
+Hello, world!!
+
+➜  1sho git:(1sho) make main
+swiftc ./print_hello.swift ./main.swift
+➜  1sho git:(1sho) ./main
+Hello, world!
+```
+
 # Swift OSS
 * SwiftはOSSで開発されている
 * コンパイラやライブラリ群も
 * XcodeやCocoaは非OSS
 
-## ライブラリ
+## Swiftのライブラリ
 * 標準ライブラリ
     * 数値や文字列など、import不要なもの
 * コアライブラリ
@@ -50,14 +62,14 @@ a = "abc"
     * libdispatch
     * XCTest
 
-## 開発ツール
+## Swiftの開発ツール
 * Swift Package Manager
     * Package Management System
 * LLDB
     * デバッガ
     * プログラムの対話的実行や変数、コールスタックのダンプ等が出来る
 
-# 命名規則
+# Swiftの命名規則
 * 単語の区切り
     * UpperCamel
 * 単語の選び方
