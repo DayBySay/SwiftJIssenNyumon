@@ -162,3 +162,71 @@ type(of: range2) // CountableClosedRange<Int>.Type
 ```
 
 ## Optional
+### アンラップ
+* OptionalBinding
+    * if let
+* ??演算子
+    * let a = Optional.none ?? 1
+* 強制アンラップ
+    * let a? = Optional<Int>.none
+    * a! // crash!!
+
+### Optional Chaining
+
+```swift
+let optionalDouble = Optional(1.0)
+let optionalIsInfinite: Bool?
+
+if let double = optionalDouble {
+    optionalIsInfinite = double.isInfinite
+} else {
+    optionalIsInfinite = nil
+}
+
+print(String(describing: optionalIsInfinite))
+```
+
+```swift
+let optionalDouble = Optional(1.0)
+let optionalIsInfinite = optionalDouble?.isInfinite
+
+print(String(describing: optionalIsInfinite))
+```
+
+## Tuple
+```swift
+let t: (String, String) = ("a", "e")
+print(t) // "("a", "e")\n"
+```
+
+* 要素名をつけられる
+```swift
+let nt = (a: "aa", a2: "ee")
+print(nt.a)
+```
+
+## Cast
+### 判定
+```swift
+let a: Any = 1
+let isInt = a is Int // true
+```
+
+### キャスト
+* アップキャスト
+```swift
+let any = "abc" as Any
+```
+
+* ダウンキャスト
+
+```swift
+// downcast
+let any = 1 as Any
+let int = any as? Int Optional(1)
+let string = any as? String // nil
+
+let any = 1 as Any
+let int = any as! Int // 1
+let string = any as! String // crash
+```
